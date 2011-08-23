@@ -20,8 +20,10 @@
 	window.MediaClips = Backbone.Collection.extend({
 		
 		model: MediaClip,
+		url: "/media",
 		
 		masterLength: function() {
+		  console.log(this);
 			var last_clip = this.max(function(clip) {
 				return clip.relativeEnd();
 			});

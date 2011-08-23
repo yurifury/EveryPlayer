@@ -1,0 +1,16 @@
+[{
+  "id": 1,
+	"title": "Viewpoint A",
+	"in": 0,
+	"duration": 30
+}, {
+  "id": 2,
+  "title": "Viewpoint B",
+	"in": 20,
+	"duration": 20
+}, {
+  "id": 3,
+  "title": "Viewpoint C",
+	"in": 0,
+	"duration": 80
+}]

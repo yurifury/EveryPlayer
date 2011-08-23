@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Cameras Everywhere!</title>
+  <script type="text/javascript" src="/js/vendor/jquery.js"></script>
+  <script type="text/javascript" src="/js/vendor/json2.js"></script>
+  <script type="text/javascript" src="/js/vendor/underscore.js"></script>
+  <script type="text/javascript" src="/js/vendor/backbone.js"></script>
+  <script type="text/javascript" src="/js/EveryPlayer.js"></script>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		window.mediaclips = new MediaClips();
+		window.mediaclips.fetch({success: function() {
+			window.master = new Master({mediaclips: window.mediaclips});
+			window.master.set({state: 'play'});
+			window.going = go();
+			setInterval('going()', 100 );
+		}});
+	});
+	
+	var go = function () {
+		var count, f;
+		var count = 0;
+
+		f = function () {
+			count += 1;
+			$('#time').html("The time is: " + count);
+			window.master.set({time: count});
+			_.each([1, 2, 3], function(num) {
+				if (window.master.mediaclips.get(num).player.isPlaying()) {
+					$('#A'+num).css('background-color', 'red').html(num + " is playing!");
+				} else {
+					$('#A'+num).css('background-color', 'white').html(num + " is not playing.");
+				}
+			});
+			return count;
+		};
+		
+		return f;
+	}
+</script>
+
+</head>
+<body>
+	<div id="container">
+		<div id="time"></div>
+		<div id="A1"></div>
+		<div id="A2"></div>
+		<div id="A3"></div>
+	</div>
+
+</body>
+</html>
