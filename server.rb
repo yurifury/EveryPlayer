@@ -1,6 +1,6 @@
 require 'rubygems'
 require 'sinatra'
 
-get '/hi' do
+get '/' do
   "CAMERAS EVERYWHERE!"
 end
