@@ -76,3 +76,16 @@ describe("Player", function() {
 	});
 	
 });
+
+describe("Master Timeline", function() {
+	
+	beforeEach(function() {
+		this.mediaclips = new MediaClips(mediaData);
+		this.master = new Master({mediaclips: this.mediaclips});
+	});
+	
+	it("inherits duration from MediaClips", function() {
+		expect(this.master.get('duration')).toEqual(80);
+	});
+  
+});

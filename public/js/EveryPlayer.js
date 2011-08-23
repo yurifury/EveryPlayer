@@ -26,6 +26,14 @@
 
 	});
 	
+	window.Master = Backbone.Model.extend({
+		
+		initialize: function() {
+			this.set({duration: this.get('mediaclips').masterLength()});
+		}
+		
+	});
+	
 	window.Player = Backbone.Model.extend({});
 	
 	$(document).ready(function() {
